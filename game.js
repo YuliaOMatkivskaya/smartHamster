@@ -15,9 +15,16 @@ let lettersRandom = letters.sort (()=>Math.random()-0.5);
 
 let hamster = new Image();
 hamster.src = "smartHamster.png";
-hamster.X = 120;
-hamster.Y = 350;
+hamster.X = 160;
+hamster.Y = 310;
 
+let nut =  new Image();
+nut.src = "nut.png";
+
+let huntingCat  = new Image();
+huntingCat.src = "huntingCat2.png";
+huntingCat.X = 0;
+huntingCat.Y = 250;
 
 //рисуем фон
 function drawBackGround() {
@@ -27,10 +34,11 @@ function drawBackGround() {
 //рисуем блоки с буквами
 function drawLetters() {
     for (let i=0;i<26;i++){
+    ctx.drawImage (nut,200+i*40, 320);
     //ctx.fillRect(160+i*40, 360, 40, 40);
     //ctx.fillStyle = "white";
     ctx.font ="20px Arial black";
-    ctx.fillText(lettersRandom[i], 180+i*40, 380);
+    ctx.fillText(lettersRandom[i], 215+i*40, 350);
     }
 }
 
@@ -38,16 +46,31 @@ function drawHamster() {
     ctx.drawImage(hamster,hamster.X,hamster.Y);
 }
 
+function gameOver(){
+        ctx.font ="50px Arial";
+        ctx.fillStyle = "#660000";
+        ctx.fillText("GAME OVER", 500, 200);
+        cancelAnimationFrame(GAME);
+}
+
+function drawHuntingCat() {
+    ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
+    huntingCat.X+=1;
+    if (huntingCat.X+100 == hamster.X){
+        gameOver();
+    }
+}
+
+
 function game(){
     
     drawBackGround();
     drawLetters();
     drawHamster();
-    //drawCat();
+    drawHuntingCat();
     //drawTextBonuses();
 
-    GAME = requestAnimationFrame(game);
-    //gameOver();
+    let GAME = requestAnimationFrame(game);
     //victory();
 }
 
