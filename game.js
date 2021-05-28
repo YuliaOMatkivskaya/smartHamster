@@ -1,6 +1,6 @@
 'use strict';
 
-const canvas = document.getElementById("game");
+const canvas = document.querySelector("#game");
 const ctx = canvas.getContext("2d");
 
 let ground = new Image();
@@ -31,31 +31,47 @@ function drawBackGround() {
     ctx.drawImage(ground,ground.X,ground.Y);
 }
 
+//создаем класс еда
+class food {
+    constructor(img, x, y, i) {
+        this.x = x;
+        this.y = y;
+        this.img = new Image();
+        this.img.src = img;
 
-//рисуем блоки с буквами
-function drawLetters() {
-    for (let i=0;i<26;i++){
-        ctx.drawImage (nut,200+i*40, 320);
-        ctx.font ="20px Arial black";
-        ctx.fillText(lettersRandom[i], 215+i*40, 350);
-        }
+        this.letter = lettersRandom[i];
+    }
 }
+//создание массива объектов, содержащих сведения, необходимые для отрисовки еды
+let arrNuts = [];
+
+for (let i=0;i<26;i++){
+    let nut = new food ("nut.png",200+i*40, 320, i);
+    arrNuts.push(nut);
+}
+
+//отрисовываем еду
+function drawFood (){
+
+arrNuts.forEach(function drawLetters(j){
+    ctx.drawImage (j.img,j.x,j.y);
+    ctx.font ="20px Arial black";
+    ctx.fillText(j.letter, j.x+15, j.y+30);
+  });
+}
+
 
 let keyButton;
 let pressedButton;
 let keyUpButton;
 
+//обработчик нажатия на кнопки клавиатуры
 
 function PressButton() {
 
     document.addEventListener('keydown', function(event) {
     return keyButton = event.code;
     });
-
-    document.addEventListener('keyup', function(event) {
-        return keyUpButton = true;
-    });
-
 
 switch (keyButton) {
     
@@ -173,9 +189,10 @@ function drawHamster() {
     
     PressButton();
     
-    if (lettersRandom[0]===pressedButton&&keyUpButton!=true){
+    if (arrNuts[0].letter===pressedButton){
         
-        hamster.X+=40;
+        hamster.X=arrNuts[0].x;
+        arrNuts.shift();
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
 }
@@ -200,7 +217,7 @@ function drawHuntingCat() {
 function game(){
     
     drawBackGround();
-    drawLetters();
+    drawFood();
     drawHamster();
     drawHuntingCat();
     //drawTextBonuses();
