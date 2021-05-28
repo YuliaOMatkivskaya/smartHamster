@@ -31,20 +31,155 @@ function drawBackGround() {
     ctx.drawImage(ground,ground.X,ground.Y);
 }
 
+
 //рисуем блоки с буквами
 function drawLetters() {
     for (let i=0;i<26;i++){
-    ctx.drawImage (nut,200+i*40, 320);
-    //ctx.fillRect(160+i*40, 360, 40, 40);
-    //ctx.fillStyle = "white";
-    ctx.font ="20px Arial black";
-    ctx.fillText(lettersRandom[i], 215+i*40, 350);
-    }
+        ctx.drawImage (nut,200+i*40, 320);
+        ctx.font ="20px Arial black";
+        ctx.fillText(lettersRandom[i], 215+i*40, 350);
+        }
+}
+
+let keyButton;
+let pressedButton;
+let keyUpButton;
+
+
+function PressButton() {
+
+    document.addEventListener('keydown', function(event) {
+    return keyButton = event.code;
+    });
+
+    document.addEventListener('keyup', function(event) {
+        return keyUpButton = true;
+    });
+
+
+switch (keyButton) {
+    
+    case 'KeyQ':  
+        return pressedButton = 'q';
+        break;
+  
+    case 'KeyW': 
+        return pressedButton = 'w';
+        break;
+    
+    case 'KeyE':  
+        return pressedButton = 'e';
+        break;
+  
+    case 'KeyR': 
+        return pressedButton = 'r';
+        break;
+    
+    case 'KeyT':  
+        return pressedButton = 't';
+        break;
+  
+    case 'KeyY': 
+        return pressedButton = 'y';
+        break;
+    
+    case 'KeyU':  
+        return pressedButton = 'u';
+        break;
+  
+    case 'KeyI': 
+        return pressedButton = 'i';
+        break;
+    
+    case 'KeyO':  
+        return pressedButton = 'o';
+        break;
+  
+    case 'KeyP': 
+        return pressedButton = 'p';
+        break;
+    
+    case 'KeyA':  
+        return pressedButton = 'a';
+        break;
+  
+    case 'KeyS': 
+        return pressedButton = 's';
+        break;
+    
+    case 'KeyD':  
+        return pressedButton = 'd';
+        break;
+  
+    case 'KeyF': 
+        return pressedButton = 'f';
+        break;
+    
+    case 'KeyG':  
+        return pressedButton = 'g';
+        break;
+  
+    case 'KeyH': 
+        return pressedButton = 'h';
+        break;
+    
+    case 'KeyJ':  
+        return pressedButton = 'j';
+        break;
+  
+    case 'KeyK': 
+        return pressedButton = 'k';
+        break;
+    
+    case 'KeyL':  
+        return pressedButton = 'l';
+        break;
+  
+    case 'KeyZ': 
+        return pressedButton = 'z';
+        break;
+    
+    case 'KeyX':  
+        return pressedButton = 'x';
+        break;
+  
+    case 'KeyC': 
+        return pressedButton = 'c';
+        break;
+    
+    case 'KeyV':  
+        return pressedButton = 'v';
+        break;
+  
+    case 'KeyB': 
+        return pressedButton = 'b';
+        break;
+    
+    case 'KeyN':  
+        return pressedButton = 'n';
+        break;
+  
+    case 'KeyM': 
+        return pressedButton = 'm';
+        break;
+  
+    default:
+        break;
+  }
+    
 }
 
 function drawHamster() {
+    
+    PressButton();
+    
+    if (lettersRandom[0]===pressedButton&&keyUpButton!=true){
+        
+        hamster.X+=40;
+    }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
 }
+
 
 function gameOver(){
         ctx.font ="50px Arial";
@@ -55,8 +190,8 @@ function gameOver(){
 
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
-    huntingCat.X+=1;
-    if (huntingCat.X+100 == hamster.X){
+    huntingCat.X+=0.1;
+    if (huntingCat.X+100 >= hamster.X){
         gameOver();
     }
 }
