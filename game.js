@@ -26,6 +26,31 @@ huntingCat.src = "huntingCat2.png";
 huntingCat.X = 0;
 huntingCat.Y = 250;
 
+
+//задаем несколько уровней сложности
+let speedOfCat;
+let level = prompt("Введите уровень сложности - цифру от 1 до 3","1");
+
+switch (level) {
+    
+    case '1':  
+        speedOfCat = 0.1;
+        break;
+  
+    case '2': 
+        speedOfCat = 0.3;
+        break;
+    
+    case '3':  
+        speedOfCat = 0.5;
+        break;
+    
+    default:
+        alert ("Вы ввели некорректную информацию - по умолчанию установлен уровень 1");
+        speedOfCat = 0.1;
+        break;
+  }
+
 //рисуем фон
 function drawBackGround() {
     ctx.drawImage(ground,ground.X,ground.Y);
@@ -76,7 +101,6 @@ function drawFood (){
 let keyButton;
 let pressedButton;
 let keyUpButton;
-let score;
 
 //обработчик нажатия на кнопки клавиатуры
 
@@ -197,6 +221,12 @@ switch (keyButton) {
   }
     
 }
+let score=0;
+function drawScore(){
+    ctx.font ="20px Arial black";
+    ctx.fillText("Score: " + score, 1050, 50);
+}
+
 
 
 function drawHamster() {
@@ -223,7 +253,7 @@ function gameOver(){
 
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
-    huntingCat.X+=0.1;
+    huntingCat.X+=speedOfCat;
     if (huntingCat.X+100 >= hamster.X){
         gameOver();
     }
@@ -236,6 +266,7 @@ function game(){
     drawFood();
     drawHamster();
     drawHuntingCat();
+    drawScore();
     //drawTextBonuses();
     //victory();
     let GAME = requestAnimationFrame(game);
