@@ -50,10 +50,22 @@ for (let i=0;i<26;i++){
     arrNuts.push(nut);
 }
 
+let hamsterIsWinner  = new Image();
+hamsterIsWinner.src = "isWinner.png";
+hamsterIsWinner.X = 500;
+hamsterIsWinner.Y = 150;
+
+function victory(){
+    ctx.drawImage(hamsterIsWinner,hamsterIsWinner.X,hamsterIsWinner.Y);
+    ctx.font ="50px Arial";
+    ctx.fillStyle = "#660000";
+    ctx.fillText("Блестящий результат!", 400, 100);
+    cancelAnimationFrame(GAME);
+}
+
 //отрисовываем еду
 function drawFood (){
-
-arrNuts.forEach(function drawLetters(j){
+    arrNuts.forEach(function drawLetters(j){
     ctx.drawImage (j.img,j.x,j.y);
     ctx.font ="20px Arial black";
     ctx.fillText(j.letter, j.x+15, j.y+30);
@@ -64,10 +76,11 @@ arrNuts.forEach(function drawLetters(j){
 let keyButton;
 let pressedButton;
 let keyUpButton;
+let score;
 
 //обработчик нажатия на кнопки клавиатуры
 
-function PressButton() {
+function pressButton() {
 
     document.addEventListener('keydown', function(event) {
     return keyButton = event.code;
@@ -185,16 +198,18 @@ switch (keyButton) {
     
 }
 
+
 function drawHamster() {
-    
-    PressButton();
-    
-    if (arrNuts[0].letter===pressedButton){
-        
-        hamster.X=arrNuts[0].x;
-        arrNuts.shift();
+    if (hamster.X==1200){
+        victory();
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
+    pressButton();
+    if(arrNuts[0].letter===pressedButton){
+        hamster.X=arrNuts[0].x;
+        arrNuts.shift();
+        score+=1;
+    }
 }
 
 
@@ -204,6 +219,7 @@ function gameOver(){
         ctx.fillText("GAME OVER", 500, 200);
         cancelAnimationFrame(GAME);
 }
+
 
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
@@ -221,9 +237,8 @@ function game(){
     drawHamster();
     drawHuntingCat();
     //drawTextBonuses();
-
-    let GAME = requestAnimationFrame(game);
     //victory();
+    let GAME = requestAnimationFrame(game);
 }
 
 game();
