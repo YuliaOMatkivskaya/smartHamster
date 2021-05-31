@@ -1,0 +1,16 @@
+
+body {
+    text-align: center;
+    background: black; 
+}
+
+p{
+    font-size: 20px;
+    color: #00A7FF;
+    margin: 30px 0px;
+}
+
+#game{
+    border-radius: 15px;
+    box-shadow: 0 0 5px #00A7FF;
+}

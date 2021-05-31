@@ -93,7 +93,7 @@ function drawFood (){
     arrNuts.forEach(function drawLetters(j){
     ctx.drawImage (j.img,j.x,j.y);
     ctx.font ="20px Arial black";
-    ctx.fillText(j.letter, j.x+15, j.y+30);
+    ctx.fillText(j.letter, j.x+13, j.y+30);
   });
 }
 
