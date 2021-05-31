@@ -9,9 +9,8 @@ ground.X = 0;
 ground.Y = 0;
 
 const letters = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
-
+//сортируем буквы случайным образом
 let lettersRandom = letters.sort (()=>Math.random()-0.5);
-
 
 let hamster = new Image();
 hamster.src = "smartHamster.png";
@@ -75,19 +74,6 @@ for (let i=0;i<26;i++){
     arrNuts.push(nut);
 }
 
-let hamsterIsWinner  = new Image();
-hamsterIsWinner.src = "isWinner.png";
-hamsterIsWinner.X = 500;
-hamsterIsWinner.Y = 150;
-
-function victory(){
-    ctx.drawImage(hamsterIsWinner,hamsterIsWinner.X,hamsterIsWinner.Y);
-    ctx.font ="50px Arial";
-    ctx.fillStyle = "#660000";
-    ctx.fillText("Блестящий результат!", 400, 100);
-    cancelAnimationFrame(GAME);
-}
-
 //отрисовываем еду
 function drawFood (){
     arrNuts.forEach(function drawLetters(j){
@@ -97,12 +83,9 @@ function drawFood (){
   });
 }
 
-
+//обработчик нажатия на кнопки клавиатуры
 let keyButton;
 let pressedButton;
-let keyUpButton;
-
-//обработчик нажатия на кнопки клавиатуры
 
 function pressButton() {
 
@@ -221,14 +204,30 @@ switch (keyButton) {
   }
     
 }
+
+//выводим количество съеденных орехов на экран
 let score=0;
 function drawScore(){
     ctx.font ="20px Arial black";
     ctx.fillText("Score: " + score, 1050, 50);
 }
 
+//если все орехи с буквами съедены хомяком 
 
+let hamsterIsWinner  = new Image();
+hamsterIsWinner.src = "isWinner.png";
+hamsterIsWinner.X = 500;
+hamsterIsWinner.Y = 150;
 
+function victory(){
+    ctx.drawImage(hamsterIsWinner,hamsterIsWinner.X,hamsterIsWinner.Y);
+    ctx.font ="50px Arial";
+    ctx.fillStyle = "#660000";
+    ctx.fillText("Блестящий результат!", 400, 100);
+    cancelAnimationFrame(GAME);
+}
+
+//рисуем хомяка
 function drawHamster() {
     if (hamster.X==1200){
         victory();
@@ -242,7 +241,7 @@ function drawHamster() {
     }
 }
 
-
+//если кот догнал хомяка
 function gameOver(){
         ctx.font ="50px Arial";
         ctx.fillStyle = "#660000";
@@ -250,7 +249,7 @@ function gameOver(){
         cancelAnimationFrame(GAME);
 }
 
-
+//рисуем кота
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
     huntingCat.X+=speedOfCat;
@@ -259,7 +258,7 @@ function drawHuntingCat() {
     }
 }
 
-
+//главная функция, вызывающая остальные
 function game(){
     
     drawBackGround();
