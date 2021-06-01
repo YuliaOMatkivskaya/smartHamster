@@ -25,6 +25,14 @@ huntingCat.src = "huntingCat2.png";
 huntingCat.X = 0;
 huntingCat.Y = 250;
 
+const crunch = new Audio();
+crunch.src = "crunch.mp3";
+
+const victoryHamster = new Audio();
+victoryHamster.src = "victory.mp3";
+
+const catGreedyEats = new Audio();
+catGreedyEats.src = "cat greedy eats.mp3";
 
 //задаем несколько уровней сложности
 let speedOfCat;
@@ -230,12 +238,14 @@ function victory(){
 //рисуем хомяка
 function drawHamster() {
     if (hamster.X==1200){
+        victoryHamster.play();
         victory();
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
     pressButton();
     if(arrNuts[0].letter===pressedButton){
         hamster.X=arrNuts[0].x;
+        crunch.play();
         arrNuts.shift();
         score+=1;
     }
@@ -254,6 +264,7 @@ function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
     huntingCat.X+=speedOfCat;
     if (huntingCat.X+100 >= hamster.X){
+        catGreedyEats.play();
         gameOver();
     }
 }
