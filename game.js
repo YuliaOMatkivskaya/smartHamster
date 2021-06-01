@@ -25,6 +25,9 @@ huntingCat.src = "huntingCat2.png";
 huntingCat.X = 0;
 huntingCat.Y = 250;
 
+let catWon = new Image();
+catWon.src = "cat won.png";
+
 const crunch = new Audio();
 crunch.src = "crunch.mp3";
 
@@ -253,10 +256,15 @@ function drawHamster() {
 
 //если кот догнал хомяка
 function gameOver(){
+        
         ctx.font ="50px Arial";
         ctx.fillStyle = "#660000";
         ctx.fillText("GAME OVER", 500, 200);
+        setTimeout(() => {
+            ctx.drawImage(catWon,huntingCat.X-100,huntingCat.Y-50);
+        }, 2000);
         cancelAnimationFrame(GAME);
+        
 }
 
 //рисуем кота
