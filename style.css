@@ -1,13 +1,16 @@
 
 body {
     text-align: center;
-    background: black; 
+    background: rgb(113, 221, 103); 
 }
 
 p{
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    color: #00A7FF;
-    margin: 30px 0px;
+    font-weight: bold;
+    font-style: italic;
+    color: #04202e;
+    margin: 20px 0px;
 }
 
 #game{
