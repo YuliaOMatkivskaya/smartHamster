@@ -39,7 +39,12 @@ catGreedyEats.src = "cat greedy eats.mp3";
 
 //задаем несколько уровней сложности
 let speedOfCat;
-let level = prompt("Введите уровень сложности - цифру от 1 до 3","1");
+
+level1.onclick = () => speedOfCat = 0.1;
+level2.onclick = () => speedOfCat = 0.3;
+level3.onclick = () => speedOfCat = 0.5;
+
+/*let level = prompt("Введите уровень сложности - цифру от 1 до 3","1");
 
 switch (level) {
     
@@ -60,6 +65,7 @@ switch (level) {
         speedOfCat = 0.1;
         break;
   }
+*/
 
 //рисуем фон
 function drawBackGround() {
@@ -270,10 +276,12 @@ function gameOver(){
 //рисуем кота
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
+    if (speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5){
     huntingCat.X+=speedOfCat;
     if (huntingCat.X+100 >= hamster.X){
         catGreedyEats.play();
         gameOver();
+    }
     }
 }
 
