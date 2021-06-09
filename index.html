@@ -9,11 +9,19 @@
 </head>
 <body>
     <div>
-        <p>Чтобы хомяк мог съесть орех, ты должен нажать на соответствующую кнопку на клавиатуре</p>
+        <div id = "options1">
+            <p>Выбери уровень сложности игры</p>
+            <input value="Новичок" onclick="addLevel1()" type="button">
+            <input value="Опытный" onclick="addLevel2()" type="button">
+            <input value="Мастер" onclick="addLevel3()" type="button">
+        </div>
+        <div id = "options2">
+            <p>Выбери язык</p>
+            <input value="Английский" onclick="addEng()" type="button">
+            <input value="Русский" onclick="addRus()" type="button">
+        </div>
         <canvas id = "game" width = "1240" height = "400"></canvas>
-        <button type="button1">Новичок</button>
-        <button type="button2">Опытный</button>
-        <button type="button3">Мастер</button>
+        <p>Чтобы хомяк мог съесть орех, ты должен нажать на соответствующую кнопку на клавиатуре</p>
     </div>
     <script src="game.js"></script>
 </body>
