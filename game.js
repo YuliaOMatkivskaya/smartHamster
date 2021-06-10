@@ -8,7 +8,16 @@ ground.src = "ground.png";
 ground.X = 0;
 ground.Y = 0;
 
-const letters = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+let letters;
+const lettersEn = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+const lettersRus = ['й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ф','ы','в','а','п','р','о','л','д','ж','э','я','ч','с','м','и','т','ь','б','ю','ё'];
+
+letters = lettersEn;
+
+eng.onclick = () => letters = lettersEn;
+rus.onclick = () => letters = lettersRus;
+
+
 //сортируем буквы случайным образом
 let lettersRandom = letters.sort (()=>Math.random()-0.5);
 
@@ -252,7 +261,7 @@ function drawHamster() {
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
     pressButton();
-    if(arrNuts[0].letter===pressedButton){
+    if((arrNuts[0].letter===pressedButton)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
         hamster.X=arrNuts[0].x;
         crunch.play();
         arrNuts.shift();
@@ -287,14 +296,12 @@ function drawHuntingCat() {
 
 //главная функция, вызывающая остальные
 function game(){
-    
     drawBackGround();
     drawFood();
     drawHamster();
     drawHuntingCat();
     drawScore();
-    //drawTextBonuses();
-    //victory();
+
     let GAME = requestAnimationFrame(game);
 }
 

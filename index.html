@@ -4,25 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Smart Hamster</title>
 </head>
 <body>
-    <div>
-        <div id = "options1">
-            <p>Выбери уровень сложности игры</p>
-            <input id = "level1" value="Новичок" type="button">
-            <input id = "level2" value="Опытный" type="button">
-            <input id = "level3" value="Мастер" type="button">
+    <div id="myModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">"Умный хомяк"</h2>              
+                </div>
+                <div class="modal-body">
+                    <p id = "rules">Чтобы хомяк мог съесть орех, ты должен нажать на соответствующую кнопку на клавиатуре</p>
+                    <div id = "options1">
+                        <p>Выбери уровень сложности игры</p>
+                        <button id = "level1" type="button">Новичок</button>
+                        <button id = "level2" type="button">Опытный</button>
+                        <button id = "level3" type="button">Мастер</button>
+                    </div>
+                    <div id = "options2">
+                        <p>Выбери язык</p>
+                        <button id = "eng" type="button">Английский</button>
+                        <button id = "rus" type="button">Русский</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
         </div>
-        <div id = "options2">
-            <p>Выбери язык</p>
-            <input id = "eng" value="Английский" type="button">
-            <input id = "rus" value="Русский" type="button">
-        </div>
-        <canvas id = "game" width = "1240" height = "400"></canvas>
-        <p>Чтобы хомяк мог съесть орех, ты должен нажать на соответствующую кнопку на клавиатуре</p>
     </div>
+    <div>
+        <canvas id = "game" width = "1240" height = "400"></canvas>
+    </div>
+    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">Открыть настройки и правила игры</a>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
     <script src="game.js"></script>
 </body>
 </html>
