@@ -16,12 +16,12 @@
                     <h2 class="modal-title">"Умный хомяк"</h2>              
                 </div>
                 <div class="modal-body">
-                    <p id = "rules">Чтобы хомяк мог съесть орех, ты должен нажать на соответствующую кнопку на клавиатуре</p>
+                    <p id = "rules">Чтобы начать игру, нужно выбрать уровень сложности. Хомяк съедает ближний к нему орех, если ты правильно нажал букву</p>
                     <div id = "options1">
                         <p>Выбери уровень сложности игры</p>
-                        <button id = "level1" type="button">Новичок</button>
-                        <button id = "level2" type="button">Опытный</button>
-                        <button id = "level3" type="button">Мастер</button>
+                        <button id = "level1" type="button" data-dismiss="modal">Новичок</button>
+                        <button id = "level2" type="button" data-dismiss="modal">Опытный</button>
+                        <button id = "level3" type="button" data-dismiss="modal">Мастер</button>
                     </div>
                     <div id = "options2">
                         <p>Выбери язык</p>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button id = "close" type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
