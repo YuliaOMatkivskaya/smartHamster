@@ -12,22 +12,21 @@
     <div id="myModal" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">"Умный хомяк"</h2>              
-                </div>
                 <div class="modal-body">
-                    <p id = "rules">Чтобы начать игру, нужно выбрать уровень сложности. Хомяк съедает ближний к нему орех, если ты правильно нажал букву</p>
+                    <h2 class="modal-title text-center">"Умный хомяк"</h2>
+                    <p id = "rules">Чтобы начать игру, нужно сначала выбрать язык, а затем уровень сложности. Хомяк съедает ближний к нему орех, если ты правильно нажал букву</p>
+                    <div id = "options2">
+                        <p>Выбери буквы какого языка будут напечатаны на орехах</p>
+                        <button id = "eng" type="button">Английский</button>
+                        <button id = "rus" type="button">Русский</button>
+                    </div>
                     <div id = "options1">
                         <p>Выбери уровень сложности игры</p>
                         <button id = "level1" type="button" data-dismiss="modal">Новичок</button>
                         <button id = "level2" type="button" data-dismiss="modal">Опытный</button>
                         <button id = "level3" type="button" data-dismiss="modal">Мастер</button>
                     </div>
-                    <div id = "options2">
-                        <p>Выбери язык</p>
-                        <button id = "eng" type="button">Английский</button>
-                        <button id = "rus" type="button">Русский</button>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button id = "close" type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -48,6 +47,7 @@
     $(document).ready(function(){
         $("#myModal").modal('show');
     });
+
 </script>
     <script src="game.js"></script>
 </body>

@@ -12,14 +12,10 @@ let letters;
 const lettersEn = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
 const lettersRus = ['й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ф','ы','в','а','п','р','о','л','д','ж','э','я','ч','с','м','и','т','ь','б','ю','ё'];
 
-letters = lettersEn;
-
-eng.onclick = () => letters = lettersEn;
-rus.onclick = () => letters = lettersRus;
-
 
 //сортируем буквы случайным образом
-let lettersRandom = letters.sort (()=>Math.random()-0.5);
+let lettersRandomEn = lettersEn.sort (()=>Math.random()-0.5);
+let lettersRandomRus = lettersRus.sort (()=>Math.random()-0.5);
 
 let hamster = new Image();
 hamster.src = "smartHamster.png";
@@ -53,28 +49,6 @@ level1.onclick = () => speedOfCat = 0.1;
 level2.onclick = () => speedOfCat = 0.3;
 level3.onclick = () => speedOfCat = 0.5;
 
-/*let level = prompt("Введите уровень сложности - цифру от 1 до 3","1");
-
-switch (level) {
-    
-    case '1':  
-        speedOfCat = 0.1;
-        break;
-  
-    case '2': 
-        speedOfCat = 0.3;
-        break;
-    
-    case '3':  
-        speedOfCat = 0.5;
-        break;
-    
-    default:
-        alert ("Вы ввели некорректную информацию - по умолчанию установлен уровень 1");
-        speedOfCat = 0.1;
-        break;
-  }
-*/
 
 //рисуем фон
 function drawBackGround() {
@@ -89,7 +63,8 @@ class food {
         this.img = new Image();
         this.img.src = img;
 
-        this.letter = lettersRandom[i];
+        this.letterEn = lettersRandomEn[i];
+        this.letterRus = lettersRandomRus[i];
     }
 }
 //создание массива объектов, содержащих сведения, необходимые для отрисовки еды
@@ -100,12 +75,17 @@ for (let i=0;i<26;i++){
     arrNuts.push(nut);
 }
 
+let lang;
+eng.onclick = () => lang = "En";
+rus.onclick = () => lang = "Rus"; 
+
 //отрисовываем еду
 function drawFood (){
     arrNuts.forEach(function drawLetters(j){
     ctx.drawImage (j.img,j.x,j.y);
     ctx.font ="20px Arial black";
-    ctx.fillText(j.letter, j.x+13, j.y+30);
+    if (lang=="En") {ctx.fillText(j.letterEn, j.x+13, j.y+30);}
+    if (lang=="Rus") {ctx.fillText(j.letterRus, j.x+13, j.y+30);}
   });
 }
 
@@ -261,7 +241,7 @@ function drawHamster() {
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
     pressButton();
-    if((arrNuts[0].letter===pressedButton)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
+    if((arrNuts[0].letterEn===pressedButton||arrNuts[0].letterRus===pressedButton)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
         hamster.X=arrNuts[0].x;
         crunch.play();
         arrNuts.shift();
