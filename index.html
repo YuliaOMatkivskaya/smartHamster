@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='style.css'>
     <title>Smart Hamster</title>
 </head>
 <body>
-    <div id="myModal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h2 class="modal-title text-center">"Умный хомяк"</h2>
-                    <p id = "rules">Чтобы начать игру, нужно сначала выбрать язык, а затем уровень сложности. Хомяк съедает ближний к нему орех, если ты правильно нажал букву</p>
-                    <div id = "options2">
+    <div id='myModal' class='modal' tabindex='-1'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-body'>
+                    <h2 class='modal-title text-center'>'Умный хомяк'</h2>
+                    <p id = 'rules'>Чтобы начать игру, нужно сначала выбрать язык, а затем уровень сложности. Хомяк съедает ближний к нему орех, если ты правильно нажал букву</p>
+                    <div id = 'options2'>
                         <p>Выбери буквы какого языка будут напечатаны на орехах</p>
-                        <button id = "eng" type="button">Английский</button>
-                        <button id = "rus" type="button">Русский</button>
+                        <button id = 'rus' type='button'>Русский</button>
+                        <button id = 'eng' type='button'>Английский</button>
                     </div>
-                    <div id = "options1">
+                    <div id = 'options1'>
                         <p>Выбери уровень сложности игры</p>
-                        <button id = "level1" type="button" data-dismiss="modal">Новичок</button>
-                        <button id = "level2" type="button" data-dismiss="modal">Опытный</button>
-                        <button id = "level3" type="button" data-dismiss="modal">Мастер</button>
+                        <button id = 'level1' type='button' data-dismiss='modal'>Новичок</button>
+                        <button id = 'level2' type='button' data-dismiss='modal'>Опытный</button>
+                        <button id = 'level3' type='button' data-dismiss='modal'>Мастер</button>
                     </div>
 
                 </div>
-                <div class="modal-footer">
-                    <button id = "close" type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <div class='modal-footer'>
+                    <button id = 'close' type='button' class='btn btn-secondary' data-dismiss='modal'>Закрыть</button>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <canvas id = "game" width = "1240" height = "400"></canvas>
+        <canvas id = 'game' width = '1240' height = '400'></canvas>
     </div>
-    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">Открыть настройки и правила игры</a>
+    <a href='#myModal' class='btn btn-lg btn-primary' data-toggle='modal'>Открыть настройки и правила игры</a>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <script>
     $(document).ready(function(){
-        $("#myModal").modal('show');
+        $('#myModal').modal('show');
     });
 
 </script>
-    <script src="game.js"></script>
+    <script src='game.js'></script>
 </body>
 </html>

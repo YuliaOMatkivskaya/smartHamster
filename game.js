@@ -1,46 +1,45 @@
 'use strict';
 
-const canvas = document.querySelector("#game");
-const ctx = canvas.getContext("2d");
+const canvas = document.querySelector('#game');
+const ctx = canvas.getContext('2d');
 
 let ground = new Image();
-ground.src = "ground.png";
+ground.src = 'ground.png';
 ground.X = 0;
 ground.Y = 0;
 
-let letters;
-const lettersEn = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+const lettersEng = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
 const lettersRus = ['й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ф','ы','в','а','п','р','о','л','д','ж','э','я','ч','с','м','и','т','ь','б','ю','ё'];
 
 
 //сортируем буквы случайным образом
-let lettersRandomEn = lettersEn.sort (()=>Math.random()-0.5);
+let lettersRandomEng = lettersEng.sort (()=>Math.random()-0.5);
 let lettersRandomRus = lettersRus.sort (()=>Math.random()-0.5);
 
 let hamster = new Image();
-hamster.src = "smartHamster.png";
+hamster.src = 'smartHamster.png';
 hamster.X = 160;
 hamster.Y = 310;
 
 let nut =  new Image();
-nut.src = "nut.png";
+nut.src = 'nut.png';
 
 let huntingCat  = new Image();
-huntingCat.src = "huntingCat2.png";
+huntingCat.src = 'huntingCat2.png';
 huntingCat.X = 0;
 huntingCat.Y = 250;
 
 let catWon = new Image();
-catWon.src = "cat won.png";
+catWon.src = 'cat won.png';
 
 const crunch = new Audio();
-crunch.src = "crunch.mp3";
+crunch.src = 'crunch.mp3';
 
 const victoryHamster = new Audio();
-victoryHamster.src = "victory.mp3";
+victoryHamster.src = 'victory.mp3';
 
 const catGreedyEats = new Audio();
-catGreedyEats.src = "cat greedy eats.mp3";
+catGreedyEats.src = 'cat greedy eats.mp3';
 
 //задаем несколько уровней сложности
 let speedOfCat;
@@ -63,7 +62,7 @@ class food {
         this.img = new Image();
         this.img.src = img;
 
-        this.letterEn = lettersRandomEn[i];
+        this.letterEng = lettersRandomEng[i];
         this.letterRus = lettersRandomRus[i];
     }
 }
@@ -71,165 +70,308 @@ class food {
 let arrNuts = [];
 
 for (let i=0;i<26;i++){
-    let nut = new food ("nut.png",200+i*40, 320, i);
+    let nut = new food ('nut.png',200+i*40, 320, i);
     arrNuts.push(nut);
 }
 
 let lang;
-eng.onclick = () => lang = "En";
-rus.onclick = () => lang = "Rus"; 
+eng.onclick = () => lang = 'Eng';
+rus.onclick = () => lang = 'Rus'; 
 
 //отрисовываем еду
 function drawFood (){
     arrNuts.forEach(function drawLetters(j){
     ctx.drawImage (j.img,j.x,j.y);
-    ctx.font ="20px Arial black";
-    if (lang=="En") {ctx.fillText(j.letterEn, j.x+13, j.y+30);}
-    if (lang=="Rus") {ctx.fillText(j.letterRus, j.x+13, j.y+30);}
-  });
+    ctx.font ='20px Arial black';
+    if (lang=='Eng') {ctx.fillText(j.letterEng, j.x+13, j.y+30);}
+    if (lang=='Rus') {ctx.fillText(j.letterRus, j.x+13, j.y+30);}
+});
 }
 
 //обработчик нажатия на кнопки клавиатуры
 let keyButton;
-let pressedButton;
+let pressedButtonEng;
+let pressedButtonRus;
 
 function pressButton() {
 
-    document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function(event) {
     return keyButton = event.code;
     });
 
+    if (lang=='Eng'){
 switch (keyButton) {
     
     case 'KeyQ':  
-        return pressedButton = 'q';
+        return pressedButtonEng = 'q';
         break;
   
     case 'KeyW': 
-        return pressedButton = 'w';
+        return pressedButtonEng = 'w';
         break;
     
     case 'KeyE':  
-        return pressedButton = 'e';
+        return pressedButtonEng = 'e';
         break;
   
     case 'KeyR': 
-        return pressedButton = 'r';
+        return pressedButtonEng = 'r';
         break;
     
     case 'KeyT':  
-        return pressedButton = 't';
+        return pressedButtonEng = 't';
         break;
   
     case 'KeyY': 
-        return pressedButton = 'y';
+        return pressedButtonEng = 'y';
         break;
     
     case 'KeyU':  
-        return pressedButton = 'u';
+        return pressedButtonEng = 'u';
         break;
   
     case 'KeyI': 
-        return pressedButton = 'i';
+        return pressedButtonEng = 'i';
         break;
     
     case 'KeyO':  
-        return pressedButton = 'o';
+        return pressedButtonEng = 'o';
         break;
   
     case 'KeyP': 
-        return pressedButton = 'p';
+        return pressedButtonEng = 'p';
         break;
     
     case 'KeyA':  
-        return pressedButton = 'a';
+        return pressedButtonEng = 'a';
         break;
   
     case 'KeyS': 
-        return pressedButton = 's';
+        return pressedButtonEng = 's';
         break;
     
     case 'KeyD':  
-        return pressedButton = 'd';
+        return pressedButtonEng = 'd';
         break;
   
     case 'KeyF': 
-        return pressedButton = 'f';
+        return pressedButtonEng = 'f';
         break;
     
     case 'KeyG':  
-        return pressedButton = 'g';
+        return pressedButtonEng = 'g';
         break;
   
     case 'KeyH': 
-        return pressedButton = 'h';
+        return pressedButtonEng = 'h';
         break;
     
     case 'KeyJ':  
-        return pressedButton = 'j';
+        return pressedButtonEng = 'j';
         break;
   
     case 'KeyK': 
-        return pressedButton = 'k';
+        return pressedButtonEng = 'k';
         break;
     
     case 'KeyL':  
-        return pressedButton = 'l';
+        return pressedButtonEng = 'l';
         break;
   
     case 'KeyZ': 
-        return pressedButton = 'z';
+        return pressedButtonEng = 'z';
         break;
     
     case 'KeyX':  
-        return pressedButton = 'x';
+        return pressedButtonEng = 'x';
         break;
   
     case 'KeyC': 
-        return pressedButton = 'c';
+        return pressedButtonEng = 'c';
         break;
     
     case 'KeyV':  
-        return pressedButton = 'v';
+        return pressedButtonEng = 'v';
         break;
   
     case 'KeyB': 
-        return pressedButton = 'b';
+        return pressedButtonEng = 'b';
         break;
     
     case 'KeyN':  
-        return pressedButton = 'n';
+        return pressedButtonEng = 'n';
         break;
   
     case 'KeyM': 
-        return pressedButton = 'm';
+        return pressedButtonEng = 'm';
         break;
-  
+
+        
     default:
         break;
-  }
+}
+}
+if (lang=='Rus'){
+    switch (keyButton) {
+    
+        case 'KeyQ':  
+            return pressedButtonRus = 'й';
+            break;
+      
+        case 'KeyW': 
+            return pressedButtonRus = 'ц';
+            break;
+        
+        case 'KeyE':  
+            return pressedButtonRus = 'у';
+            break;
+      
+        case 'KeyR': 
+            return pressedButtonRus = 'к';
+            break;
+        
+        case 'KeyT':  
+            return pressedButtonRus = 'е';
+            break;
+      
+        case 'KeyY': 
+            return pressedButtonRus = 'н';
+            break;
+        
+        case 'KeyU':  
+            return pressedButtonRus = 'г';
+            break;
+      
+        case 'KeyI': 
+            return pressedButtonRus = 'ш';
+            break;
+        
+        case 'KeyO':  
+            return pressedButtonRus = 'щ';
+            break;
+      
+        case 'KeyP': 
+            return pressedButtonRus = 'з';
+            break;
+        
+        case 'KeyA':  
+            return pressedButtonRus = 'ф';
+            break;
+      
+        case 'KeyS': 
+            return pressedButtonRus = 'ы';
+            break;
+        
+        case 'KeyD':  
+            return pressedButtonRus = 'в';
+            break;
+      
+        case 'KeyF': 
+            return pressedButtonRus = 'а';
+            break;
+        
+        case 'KeyG':  
+            return pressedButtonRus = 'п';
+            break;
+      
+        case 'KeyH': 
+            return pressedButtonRus = 'р';
+            break;
+        
+        case 'KeyJ':  
+            return pressedButtonRus = 'о';
+            break;
+      
+        case 'KeyK': 
+            return pressedButtonRus = 'л';
+            break;
+        
+        case 'KeyL':  
+            return pressedButtonRus = 'д';
+            break;
+      
+        case 'KeyZ': 
+            return pressedButtonRus = 'я';
+            break;
+        
+        case 'KeyX':  
+            return pressedButtonRus = 'ч';
+            break;
+      
+        case 'KeyC': 
+            return pressedButtonRus = 'с';
+            break;
+        
+        case 'KeyV':  
+            return pressedButtonRus = 'м';
+            break;
+      
+        case 'KeyB': 
+            return pressedButtonRus = 'и';
+            break;
+        
+        case 'KeyN':  
+            return pressedButtonRus = 'т';
+            break;
+      
+        case 'KeyM': 
+            return pressedButtonRus = 'ь';
+            break;
+        
+        case 'Semicolon':  
+            return pressedButtonRus = 'ж';
+            break;
+      
+        case 'Quote': 
+            return pressedButtonRus = 'э';
+            break;    
+        case 'Backquote':
+            return pressedButtonRus = 'ё';
+            break;
+        
+        case 'BracketLeft':
+            return pressedButtonRus = 'х';
+            break;
+    
+        case 'BracketRight':
+            return pressedButtonRus = 'ъ';
+            break;
+    
+        case 'Comma':
+            return pressedButtonRus = 'б';
+            break;   
+    
+        case 'Period':
+            return pressedButtonRus = 'ю';
+            break; 
+            
+        default:
+            break;
+    }
+
+}
     
 }
 
 //выводим количество съеденных орехов на экран
 let score=0;
 function drawScore(){
-    ctx.font ="20px Arial black";
-    ctx.fillText("Score: " + score, 1050, 50);
+    ctx.font ='20px Arial black';
+    ctx.fillText('Score: ' + score, 1050, 50);
 }
 
 //если все орехи с буквами съедены хомяком 
 
 let hamsterIsWinner  = new Image();
-hamsterIsWinner.src = "isWinner.png";
+hamsterIsWinner.src = 'isWinner.png';
 hamsterIsWinner.X = 500;
 hamsterIsWinner.Y = 150;
 
 function victory(){
     ctx.drawImage(hamsterIsWinner,hamsterIsWinner.X,hamsterIsWinner.Y);
-    ctx.font ="50px Arial";
-    ctx.fillStyle = "#660000";
-    ctx.fillText("Блестящий результат!", 400, 100);
+    ctx.font ='50px Arial';
+    ctx.fillStyle = '#660000';
+    ctx.fillText('Блестящий результат!', 400, 100);
     cancelAnimationFrame(GAME);
 }
 
@@ -241,7 +383,7 @@ function drawHamster() {
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
     pressButton();
-    if((arrNuts[0].letterEn===pressedButton||arrNuts[0].letterRus===pressedButton)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
+    if((arrNuts[0].letterEng===pressedButtonEng||arrNuts[0].letterRus===pressedButtonRus)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
         hamster.X=arrNuts[0].x;
         crunch.play();
         arrNuts.shift();
@@ -252,9 +394,9 @@ function drawHamster() {
 //если кот догнал хомяка
 function gameOver(){
         
-        ctx.font ="50px Arial";
-        ctx.fillStyle = "#660000";
-        ctx.fillText("GAME OVER", 460, 200);
+        ctx.font ='50px Arial';
+        ctx.fillStyle = '#660000';
+        ctx.fillText('GAME OVER', 460, 200);
         setTimeout(() => {
             ctx.drawImage(catWon,huntingCat.X-100,huntingCat.Y-50);
         }, 2000);
