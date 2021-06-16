@@ -4,7 +4,7 @@ const canvas = document.querySelector('#game');
 const ctx = canvas.getContext('2d');
 
 let ground = new Image();
-ground.src = 'ground.png';
+ground.src = 'img/ground.png';
 ground.X = 0;
 ground.Y = 0;
 
@@ -17,29 +17,29 @@ let lettersRandomEng = lettersEng.sort (()=>Math.random()-0.5);
 let lettersRandomRus = lettersRus.sort (()=>Math.random()-0.5);
 
 let hamster = new Image();
-hamster.src = 'smartHamster.png';
+hamster.src = 'img/smartHamster.png';
 hamster.X = 160;
 hamster.Y = 310;
 
 let nut =  new Image();
-nut.src = 'nut.png';
+nut.src = 'img/nut.png';
 
 let huntingCat  = new Image();
-huntingCat.src = 'huntingCat2.png';
+huntingCat.src = 'img/huntingCat2.png';
 huntingCat.X = 0;
 huntingCat.Y = 250;
 
 let catWon = new Image();
-catWon.src = 'cat won.png';
+catWon.src = 'music/cat won.png';
 
 const crunch = new Audio();
-crunch.src = 'crunch.mp3';
+crunch.src = 'music/crunch.mp3';
 
 const victoryHamster = new Audio();
-victoryHamster.src = 'victory.mp3';
+victoryHamster.src = 'music/victory.mp3';
 
 const catGreedyEats = new Audio();
-catGreedyEats.src = 'cat greedy eats.mp3';
+catGreedyEats.src = 'music/cat greedy eats.mp3';
 
 //задаем несколько уровней сложности
 let speedOfCat;
@@ -70,7 +70,7 @@ class food {
 let arrNuts = [];
 
 for (let i=0;i<26;i++){
-    let nut = new food ('nut.png',200+i*40, 320, i);
+    let nut = new food ('img/nut.png',200+i*40, 320, i);
     arrNuts.push(nut);
 }
 
@@ -363,7 +363,7 @@ function drawScore(){
 //если все орехи с буквами съедены хомяком 
 
 let hamsterIsWinner  = new Image();
-hamsterIsWinner.src = 'isWinner.png';
+hamsterIsWinner.src = 'img/isWinner.png';
 hamsterIsWinner.X = 500;
 hamsterIsWinner.Y = 150;
 
