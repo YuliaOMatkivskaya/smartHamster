@@ -30,7 +30,7 @@ huntingCat.X = 0;
 huntingCat.Y = 250;
 
 let catWon = new Image();
-catWon.src = 'music/cat won.png';
+catWon.src = 'img/cat won.png';
 
 const crunch = new Audio();
 crunch.src = 'music/crunch.mp3';
