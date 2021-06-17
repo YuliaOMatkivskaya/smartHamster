@@ -1,5 +1,32 @@
 'use strict';
 
+let myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+
+//задаем скорость движения кота
+let speedOfCat;
+
+level1.onclick = () => speedOfCat = 0.1;
+level2.onclick = () => speedOfCat = 0.3;
+level3.onclick = () => speedOfCat = 0.5;
+
+
+//задаем язык игры
+let lang;
+eng.onclick = () => lang = 'Eng';
+rus.onclick = () => lang = 'Rus'; 
+
+//отмечаем нажатие кнопки 'начать игру'
+let start;
+startGame.onclick = () => start=true;
+
+//проверка, заданы ли условия игры
+if(!((lang == 'Eng'||lang == 'Rus')&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)&&start)){
+    myModal.show();
+}
+
+//новая игра
+newGame.onclick = () => window.location.reload();
+
 const canvas = document.querySelector('#game');
 const ctx = canvas.getContext('2d');
 
@@ -41,14 +68,6 @@ victoryHamster.src = 'music/victory.mp3';
 const catGreedyEats = new Audio();
 catGreedyEats.src = 'music/cat greedy eats.mp3';
 
-//задаем несколько уровней сложности
-let speedOfCat;
-
-level1.onclick = () => speedOfCat = 0.1;
-level2.onclick = () => speedOfCat = 0.3;
-level3.onclick = () => speedOfCat = 0.5;
-
-
 //рисуем фон
 function drawBackGround() {
     ctx.drawImage(ground,ground.X,ground.Y);
@@ -74,9 +93,6 @@ for (let i=0;i<26;i++){
     arrNuts.push(nut);
 }
 
-let lang;
-eng.onclick = () => lang = 'Eng';
-rus.onclick = () => lang = 'Rus'; 
 
 //отрисовываем еду
 function drawFood (){
@@ -383,7 +399,7 @@ function drawHamster() {
     }
     ctx.drawImage(hamster,hamster.X,hamster.Y);
     pressButton();
-    if((arrNuts[0].letterEng===pressedButtonEng||arrNuts[0].letterRus===pressedButtonRus)&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)){
+    if((arrNuts[0].letterEng===pressedButtonEng||arrNuts[0].letterRus===pressedButtonRus)&&((lang == 'Eng'||lang == 'Rus')&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)&&start)){
         hamster.X=arrNuts[0].x;
         crunch.play();
         arrNuts.shift();
@@ -407,7 +423,7 @@ function gameOver(){
 //рисуем кота
 function drawHuntingCat() {
     ctx.drawImage(huntingCat,huntingCat.X,huntingCat.Y);
-    if (speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5){
+    if (((lang == 'Eng'||lang == 'Rus')&&(speedOfCat===0.1||speedOfCat===0.3||speedOfCat===0.5)&&start)){
     huntingCat.X+=speedOfCat;
     if (huntingCat.X+100 >= hamster.X){
         catGreedyEats.play();
