@@ -1,6 +1,6 @@
 'use strict';
 
-let myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+let myModal = new bootstrap.Modal(document.querySelector('#staticBackdrop'));
 
 //задаем скорость движения кота
 let speedOfCat;
