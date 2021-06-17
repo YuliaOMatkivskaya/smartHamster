@@ -115,258 +115,196 @@ document.addEventListener('keydown', function(event) {
     return keyButton = event.code;
     });
 
-    if (lang=='Eng'){
 switch (keyButton) {
     
-    case 'KeyQ':  
-        return pressedButtonEng = 'q';
+    case 'KeyQ':
+        pressedButtonRus = 'й';  
+        pressedButtonEng = 'q';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyW': 
-        return pressedButtonEng = 'w';
+    case 'KeyW':
+        pressedButtonRus = 'ц'; 
+        pressedButtonEng = 'w';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyE':  
-        return pressedButtonEng = 'e';
+    case 'KeyE':
+        pressedButtonRus = 'у';  
+        pressedButtonEng = 'e';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyR': 
-        return pressedButtonEng = 'r';
+    case 'KeyR':
+        pressedButtonRus = 'к'; 
+        pressedButtonEng = 'r';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyT':  
-        return pressedButtonEng = 't';
+    case 'KeyT':
+        pressedButtonRus = 'е';  
+        pressedButtonEng = 't';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyY': 
-        return pressedButtonEng = 'y';
+    case 'KeyY':
+        pressedButtonRus = 'н'; 
+        pressedButtonEng = 'y';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyU':  
-        return pressedButtonEng = 'u';
+    case 'KeyU':
+        pressedButtonRus = 'г';  
+        pressedButtonEng = 'u';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyI': 
-        return pressedButtonEng = 'i';
+    case 'KeyI':
+        pressedButtonRus = 'ш'; 
+        pressedButtonEng = 'i';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyO':  
-        return pressedButtonEng = 'o';
+    case 'KeyO':
+        pressedButtonRus = 'щ';  
+        pressedButtonEng = 'o';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyP': 
-        return pressedButtonEng = 'p';
+    case 'KeyP':
+        pressedButtonRus = 'з'; 
+        pressedButtonEng = 'p';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyA':  
-        return pressedButtonEng = 'a';
+    case 'KeyA':
+        pressedButtonRus = 'ф';  
+        pressedButtonEng = 'a';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyS': 
-        return pressedButtonEng = 's';
+    case 'KeyS':
+        pressedButtonRus = 'ы'; 
+        pressedButtonEng = 's';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyD':  
-        return pressedButtonEng = 'd';
+    case 'KeyD':
+        pressedButtonRus = 'в';  
+        pressedButtonEng = 'd';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyF': 
-        return pressedButtonEng = 'f';
+    case 'KeyF':
+        pressedButtonRus = 'а'; 
+        pressedButtonEng = 'f';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyG':  
-        return pressedButtonEng = 'g';
+    case 'KeyG':
+        pressedButtonRus = 'п';  
+        pressedButtonEng = 'g';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyH': 
-        return pressedButtonEng = 'h';
+    case 'KeyH':
+        pressedButtonRus = 'р'; 
+        pressedButtonEng = 'h';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyJ':  
-        return pressedButtonEng = 'j';
+    case 'KeyJ':
+        pressedButtonRus = 'о';  
+        pressedButtonEng = 'j';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyK': 
-        return pressedButtonEng = 'k';
+    case 'KeyK':
+        pressedButtonRus = 'л'; 
+        pressedButtonEng = 'k';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyL':  
-        return pressedButtonEng = 'l';
+    case 'KeyL':
+        pressedButtonRus = 'д';  
+        pressedButtonEng = 'l';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
-    case 'KeyZ': 
-        return pressedButtonEng = 'z';
+    case 'KeyZ':
+        pressedButtonRus = 'я';
+        pressedButtonEng = 'z';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyX':  
-        return pressedButtonEng = 'x';
+    case 'KeyX': 
+        pressedButtonRus = 'ч'; 
+        pressedButtonEng = 'x';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
     case 'KeyC': 
-        return pressedButtonEng = 'c';
+        pressedButtonRus = 'с';
+        pressedButtonEng = 'c';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyV':  
-        return pressedButtonEng = 'v';
+    case 'KeyV': 
+        pressedButtonRus = 'м'; 
+        pressedButtonEng = 'v';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
     case 'KeyB': 
-        return pressedButtonEng = 'b';
+        pressedButtonRus = 'и';
+        pressedButtonEng = 'b';
+        return {pressedButtonRus,pressedButtonEng};
         break;
     
-    case 'KeyN':  
-        return pressedButtonEng = 'n';
+    case 'KeyN':
+        pressedButtonRus = 'т';
+        pressedButtonEng = 'n';
+        return {pressedButtonRus,pressedButtonEng};
         break;
   
     case 'KeyM': 
-        return pressedButtonEng = 'm';
+        pressedButtonRus = 'ь';
+        pressedButtonEng = 'm';
+        return {pressedButtonRus,pressedButtonEng};
         break;
 
+    case 'Semicolon':  
+        return pressedButtonRus = 'ж';
+        break;
+  
+    case 'Quote': 
+        return pressedButtonRus = 'э';
+        break;    
+    
+    case 'Backquote':
+        return pressedButtonRus = 'ё';
+        break;
         
+    case 'BracketLeft':
+        return pressedButtonRus = 'х';
+        break;
+
+    case 'BracketRight':
+        return pressedButtonRus = 'ъ';
+        break;
+
+    case 'Comma':
+        return pressedButtonRus = 'б';
+        break;   
+
+    case 'Period':
+        return pressedButtonRus = 'ю';
+        break;
+
     default:
         break;
-}
-}
-if (lang=='Rus'){
-    switch (keyButton) {
-    
-        case 'KeyQ':  
-            return pressedButtonRus = 'й';
-            break;
-      
-        case 'KeyW': 
-            return pressedButtonRus = 'ц';
-            break;
-        
-        case 'KeyE':  
-            return pressedButtonRus = 'у';
-            break;
-      
-        case 'KeyR': 
-            return pressedButtonRus = 'к';
-            break;
-        
-        case 'KeyT':  
-            return pressedButtonRus = 'е';
-            break;
-      
-        case 'KeyY': 
-            return pressedButtonRus = 'н';
-            break;
-        
-        case 'KeyU':  
-            return pressedButtonRus = 'г';
-            break;
-      
-        case 'KeyI': 
-            return pressedButtonRus = 'ш';
-            break;
-        
-        case 'KeyO':  
-            return pressedButtonRus = 'щ';
-            break;
-      
-        case 'KeyP': 
-            return pressedButtonRus = 'з';
-            break;
-        
-        case 'KeyA':  
-            return pressedButtonRus = 'ф';
-            break;
-      
-        case 'KeyS': 
-            return pressedButtonRus = 'ы';
-            break;
-        
-        case 'KeyD':  
-            return pressedButtonRus = 'в';
-            break;
-      
-        case 'KeyF': 
-            return pressedButtonRus = 'а';
-            break;
-        
-        case 'KeyG':  
-            return pressedButtonRus = 'п';
-            break;
-      
-        case 'KeyH': 
-            return pressedButtonRus = 'р';
-            break;
-        
-        case 'KeyJ':  
-            return pressedButtonRus = 'о';
-            break;
-      
-        case 'KeyK': 
-            return pressedButtonRus = 'л';
-            break;
-        
-        case 'KeyL':  
-            return pressedButtonRus = 'д';
-            break;
-      
-        case 'KeyZ': 
-            return pressedButtonRus = 'я';
-            break;
-        
-        case 'KeyX':  
-            return pressedButtonRus = 'ч';
-            break;
-      
-        case 'KeyC': 
-            return pressedButtonRus = 'с';
-            break;
-        
-        case 'KeyV':  
-            return pressedButtonRus = 'м';
-            break;
-      
-        case 'KeyB': 
-            return pressedButtonRus = 'и';
-            break;
-        
-        case 'KeyN':  
-            return pressedButtonRus = 'т';
-            break;
-      
-        case 'KeyM': 
-            return pressedButtonRus = 'ь';
-            break;
-        
-        case 'Semicolon':  
-            return pressedButtonRus = 'ж';
-            break;
-      
-        case 'Quote': 
-            return pressedButtonRus = 'э';
-            break;    
-        case 'Backquote':
-            return pressedButtonRus = 'ё';
-            break;
-        
-        case 'BracketLeft':
-            return pressedButtonRus = 'х';
-            break;
-    
-        case 'BracketRight':
-            return pressedButtonRus = 'ъ';
-            break;
-    
-        case 'Comma':
-            return pressedButtonRus = 'б';
-            break;   
-    
-        case 'Period':
-            return pressedButtonRus = 'ю';
-            break; 
-            
-        default:
-            break;
     }
-
-}
-    
+  
 }
 
 //выводим количество съеденных орехов на экран
