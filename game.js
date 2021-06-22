@@ -1,5 +1,3 @@
-'use strict';
-
 let myModal = new bootstrap.Modal(document.querySelector('#staticBackdrop'));
 
 //задаем скорость движения кота
@@ -126,7 +124,8 @@ let pressedButtonRus;
 function pressButton() {
 
     document.addEventListener('keydown', function (event) {
-        return keyButton = event.code;
+        keyButton = event.code;
+        return keyButton;
     });
 
     switch (keyButton) {
@@ -314,25 +313,32 @@ function pressButton() {
             };
 
         case 'Semicolon':
-            return pressedButtonRus = 'ж';
+            pressedButtonRus = 'ж';
+            return pressedButtonRus;
 
         case 'Quote':
-            return pressedButtonRus = 'э';
+            pressedButtonRus = 'э';
+            return pressedButtonRus;
 
         case 'Backquote':
-            return pressedButtonRus = 'ё';
+            pressedButtonRus = 'ё';
+            return pressedButtonRus;
 
         case 'BracketLeft':
-            return pressedButtonRus = 'х';
+            pressedButtonRus = 'х';
+            return pressedButtonRus;
 
         case 'BracketRight':
-            return pressedButtonRus = 'ъ';
+            pressedButtonRus = 'ъ';
+            return pressedButtonRus;
 
         case 'Comma':
-            return pressedButtonRus = 'б';
+            pressedButtonRus = 'б';
+            return pressedButtonRus;
 
         case 'Period':
-            return pressedButtonRus = 'ю';
+            pressedButtonRus = 'ю';
+            return pressedButtonRus;
 
         default:
             break;
