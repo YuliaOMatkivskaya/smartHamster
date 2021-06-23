@@ -1,4 +1,5 @@
 let myModal = new bootstrap.Modal(document.querySelector('#staticBackdrop'));
+myModal.show();
 
 //задаем скорость движения кота
 let speedOfCat;
@@ -9,7 +10,6 @@ let level3 = document.querySelector('#level3');
 level1.onclick = () => speedOfCat = 0.1;
 level2.onclick = () => speedOfCat = 0.3;
 level3.onclick = () => speedOfCat = 0.5;
-
 
 //задаем язык игры
 let lang;
@@ -23,12 +23,14 @@ rus.onclick = () => lang = 'Rus';
 let start;
 let startGame = document.querySelector('#startGame');
 
-startGame.onclick = () => start = true;
-
-//проверка, заданы ли условия игры
-if (!((lang === 'Eng' || lang === 'Rus') && (speedOfCat === 0.1 || speedOfCat === 0.3 || speedOfCat === 0.5) && start)) {
-    myModal.show();
+function isStart() {
+    if ((lang === 'Eng' || lang === 'Rus') && (speedOfCat === 0.1 || speedOfCat === 0.3 || speedOfCat === 0.5)) {
+        myModal.hide();
+        start = true;
+        return start;
+    }
 }
+startGame.addEventListener("click", isStart);
 
 //новая игра
 let newGame = document.querySelector('#newGame');
