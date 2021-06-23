@@ -77,6 +77,9 @@ victoryHamster.src = 'music/victory.mp3';
 const catGreedyEats = new Audio();
 catGreedyEats.src = 'music/cat greedy eats.mp3';
 
+const isPress = new Audio();
+isPress.src = 'music/isPress.mp3';
+
 //рисуем фон
 function drawBackGround() {
     ctx.drawImage(ground, ground.X, ground.Y);
@@ -118,19 +121,16 @@ function drawFood() {
     });
 }
 
-//обработчик нажатия на кнопки клавиатуры
-let keyButton;
+//обработчик нажатия на кнопки клавиатуры (можно было сделать короче через event.key, но тогда важно, какой язык выбран на компьютере, а так нет)
 let pressedButtonEng;
 let pressedButtonRus;
+
 
 function pressButton() {
 
     document.addEventListener('keydown', function (event) {
-        keyButton = event.code;
-        return keyButton;
-    });
-
-    switch (keyButton) {
+    isPress.play();
+    switch (event.code) {
 
         case 'KeyQ':
             pressedButtonRus = 'й';
@@ -345,7 +345,7 @@ function pressButton() {
         default:
             break;
     }
-
+});
 }
 
 //выводим уровень сложности на игровое поле
