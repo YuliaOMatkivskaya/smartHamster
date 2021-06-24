@@ -52,3 +52,7 @@ button{
     font-size: 20 px;
     font-weight: normal;
 }
+
+#newGame{
+    background: hsl(200, 74%, 54%);
+}
