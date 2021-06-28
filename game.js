@@ -76,6 +76,7 @@ victoryHamster.src = 'music/victory.mp3';
 
 const catGreedyEats = new Audio();
 catGreedyEats.src = 'music/cat greedy eats.mp3';
+catGreedyEats.volume = 0.2;
 
 const isPress = new Audio();
 isPress.src = 'music/isPress.mp3';

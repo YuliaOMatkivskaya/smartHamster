@@ -1,0 +1,53 @@
+body {
+  text-align: center;
+  background: #82db7a;
+}
+
+.modal-content {
+  background: #9cf794;
+  box-shadow: 0 0 5px #00A7FF;
+}
+
+.modal-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #04202e;
+  text-align: center;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: #04202e;
+  margin: 10px 0px;
+}
+
+button {
+  border-radius: 5px;
+  box-shadow: 0 0 5px #00A7FF;
+}
+
+#game {
+  margin: 50px 0px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #00A7FF;
+}
+
+#options {
+  margin: 10px 30px;
+  float: center;
+}
+
+#rules {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20 px;
+  font-weight: normal;
+}
+
+#newGame {
+  background: #00A7FF;
+  margin-right: 20px;
+}
